@@ -281,4 +281,4 @@ Drafts and pre-releases are not offered as updates.
 ### Manual download
 
 Download the latest release from this URL:
-https://github.com/dokker/bricks-ghl-connector/releases/latest/download/bricks-ghl-connector.zip
+https://github.com/vertical-online-solutions/bricks-ghl-connector/releases/latest/download/bricks-ghl-connector.zip

@@ -5,6 +5,17 @@ All notable changes to this plugin are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.1] - 2026-10-22
+
+### Changed
+
+- The repository moved to
+  `https://github.com/vertical-online-solutions/bricks-ghl-connector`. The
+  `Update URI` header, the updater and the release links point there. Updates keep
+  working without manual steps: GitHub redirects the old URL, and `info.json`
+  still gives the package under the old URL, because installs before 0.6.1 only
+  accept that one. From 0.6.1 on, both URLs are accepted.
+
 ## [0.6.0] - 2026-10-16
 
 ### Added
@@ -160,13 +171,14 @@ setting changes.
   settings page, field mapping to GHL standard and custom fields, default source
   and tags, error behavior and debug logging.
 
-[0.6.0]: https://github.com/dokker/bricks-ghl-connector/compare/v0.5.0...v0.6.0
-[0.5.0]: https://github.com/dokker/bricks-ghl-connector/compare/v0.4.1...v0.5.0
-[0.4.1]: https://github.com/dokker/bricks-ghl-connector/compare/v0.4.0...v0.4.1
-[0.4.0]: https://github.com/dokker/bricks-ghl-connector/compare/v0.3.2...v0.4.0
-[0.3.2]: https://github.com/dokker/bricks-ghl-connector/compare/v0.3.1...v0.3.2
-[0.3.1]: https://github.com/dokker/bricks-ghl-connector/compare/v0.3.0...v0.3.1
-[0.3.0]: https://github.com/dokker/bricks-ghl-connector/compare/v0.2.1...v0.3.0
-[0.2.1]: https://github.com/dokker/bricks-ghl-connector/compare/v0.2.0...v0.2.1
-[0.2.0]: https://github.com/dokker/bricks-ghl-connector/compare/v0.1.0...v0.2.0
-[0.1.0]: https://github.com/dokker/bricks-ghl-connector/releases/tag/v0.1.0
+[0.6.1]: https://github.com/vertical-online-solutions/bricks-ghl-connector/compare/v0.6.0...v0.6.1
+[0.6.0]: https://github.com/vertical-online-solutions/bricks-ghl-connector/compare/v0.5.0...v0.6.0
+[0.5.0]: https://github.com/vertical-online-solutions/bricks-ghl-connector/compare/v0.4.1...v0.5.0
+[0.4.1]: https://github.com/vertical-online-solutions/bricks-ghl-connector/compare/v0.4.0...v0.4.1
+[0.4.0]: https://github.com/vertical-online-solutions/bricks-ghl-connector/compare/v0.3.2...v0.4.0
+[0.3.2]: https://github.com/vertical-online-solutions/bricks-ghl-connector/compare/v0.3.1...v0.3.2
+[0.3.1]: https://github.com/vertical-online-solutions/bricks-ghl-connector/compare/v0.3.0...v0.3.1
+[0.3.0]: https://github.com/vertical-online-solutions/bricks-ghl-connector/compare/v0.2.1...v0.3.0
+[0.2.1]: https://github.com/vertical-online-solutions/bricks-ghl-connector/compare/v0.2.0...v0.2.1
+[0.2.0]: https://github.com/vertical-online-solutions/bricks-ghl-connector/compare/v0.1.0...v0.2.0
+[0.1.0]: https://github.com/vertical-online-solutions/bricks-ghl-connector/releases/tag/v0.1.0

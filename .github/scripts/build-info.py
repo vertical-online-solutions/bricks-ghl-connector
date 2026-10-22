@@ -14,7 +14,11 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-REPOSITORY_URL = 'https://github.com/dokker/bricks-ghl-connector'
+REPOSITORY_URL = 'https://github.com/vertical-online-solutions/bricks-ghl-connector'
+# Installs before 0.6.1 only accept packages from the repository's old URL, which
+# GitHub redirects here. Switch download_url to REPOSITORY_URL once every site
+# runs 0.6.1 or later.
+LEGACY_REPOSITORY_URL = 'https://github.com/dokker/bricks-ghl-connector'
 ROOT = Path(__file__).resolve().parents[2]
 CHANGELOG_VERSIONS = 5
 
@@ -108,7 +112,7 @@ def main():
         'version': version,
         'author': header(plugin, 'Author'),
         'homepage': REPOSITORY_URL,
-        'download_url': f'{REPOSITORY_URL}/releases/download/{tag}/bricks-ghl-connector.zip',
+        'download_url': f'{LEGACY_REPOSITORY_URL}/releases/download/{tag}/bricks-ghl-connector.zip',
         'requires': header(plugin, 'Requires at least'),
         'requires_php': header(plugin, 'Requires PHP'),
         'tested': header(plugin, 'Tested up to'),

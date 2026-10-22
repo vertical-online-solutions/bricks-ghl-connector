@@ -87,6 +87,11 @@
 - The per-form tracking ID is rendered onto the form root as `data-bghl-tracking-id`, so the browser never has to look at the form response.
 - Bricks specific tracking code stays in `Bricks\TrackingScript` and `assets/js/tracking.js` so a different form builder only needs a new adapter.
 - Updates come from GitHub releases through the `Update URI` header and `Updates\GitHubUpdater`. The updater reads `releases/latest/download/info.json`, never the GitHub REST API, because of its 60 requests per hour per IP limit. `.github/scripts/build-info.py` builds that file in the release workflow and fails the release when the tag and the versions disagree.
+- The repository moved from `dokker/bricks-ghl-connector` to
+  `vertical-online-solutions/bricks-ghl-connector` in 0.6.1. `info.json` keeps the
+  old URL in `download_url` (GitHub redirects it) because installs before 0.6.1
+  reject any other prefix. Keep `LEGACY_REPOSITORY_URL` in the updater, and only
+  switch `download_url` in `build-info.py` once no site runs a version before 0.6.1.
 
 ## Versioning and Changelog (required on every change)
 

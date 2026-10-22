@@ -15,7 +15,10 @@ use BricksGhlConnector\Support\Logger;
  */
 final class GitHubUpdater
 {
-    private const REPOSITORY_URL = 'https://github.com/dokker/bricks-ghl-connector';
+    private const REPOSITORY_URL = 'https://github.com/vertical-online-solutions/bricks-ghl-connector';
+    // The repository moved here in 0.6.1. Versions before that only accept packages
+    // from the old URL, so info.json keeps pointing there (GitHub redirects it).
+    private const LEGACY_REPOSITORY_URL = 'https://github.com/dokker/bricks-ghl-connector';
     private const INFO_URL = self::REPOSITORY_URL . '/releases/latest/download/info.json';
     private const CACHE_KEY = 'bghl_connector_update_info';
     private const CACHE_TTL = 12 * 3600;
@@ -176,10 +179,7 @@ final class GitHubUpdater
         $downloadUrl = is_string($data['download_url'] ?? null) ? $data['download_url'] : '';
 
         // Only accept packages from this repository's releases.
-        if (
-            preg_match('/^\d+\.\d+\.\d+$/', $version) !== 1
-            || strpos($downloadUrl, self::REPOSITORY_URL . '/releases/download/') !== 0
-        ) {
+        if (preg_match('/^\d+\.\d+\.\d+$/', $version) !== 1 || ! $this->isReleaseDownload($downloadUrl)) {
             return null;
         }
 
@@ -202,6 +202,17 @@ final class GitHubUpdater
             'last_updated' => $this->string($data, 'last_updated'),
             'sections' => $sections,
         ];
+    }
+
+    private function isReleaseDownload(string $url): bool
+    {
+        foreach ([self::REPOSITORY_URL, self::LEGACY_REPOSITORY_URL] as $repositoryUrl) {
+            if (strpos($url, $repositoryUrl . '/releases/download/') === 0) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /** @param array<string, mixed> $data */
